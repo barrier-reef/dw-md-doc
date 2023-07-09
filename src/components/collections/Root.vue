@@ -1,0 +1,4 @@
+<template>
+  root
+  <slot />
+</template>

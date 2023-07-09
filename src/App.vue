@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import TreeRender from './components/TreeRender.vue'
 </script>
 
 <template>
-  <HelloWorld msg="Datawhale Markdown Documentation" />
+  <TreeRender />
 </template>

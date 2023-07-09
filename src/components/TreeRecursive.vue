@@ -1,30 +1,24 @@
 <template>
-  <component :is="componentType" v-if="mdast.children">
+  <component :is="componentType" :options="node.options" v-if="node.children">
     <TreeRecursive
-      v-for="child in mdast.children"
-      :mdast="child"
+      v-for="child in node.children"
+      :node="child"
       :key="child.type"
     />
   </component>
-  <component :is="componentType" v-else />
+  <component :is="componentType" :options="node.options" v-else />
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue";
-import * as c from "./collections/index.js"
+import { componentMapper } from "./collections/index.js";
 
 const props = defineProps<{
-  mdast: any;
+  node: any;
 }>();
 
-const componentMapper: Record<string, any> = {
-  root: c.Root,
-  a: c.ComponentA,
-  b: c.ComponentB,
-};
-
 const componentType = computed(() => {
-  const type: string = props.mdast.type;
+  const type: string = props.node.type;
   return componentMapper[type];
 });
 </script>

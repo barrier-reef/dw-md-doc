@@ -6,9 +6,36 @@
 import TreeRecursive from "./TreeRecursive.vue";
 
 const mdast = {
-  type: "root",
+  type: "multiple-choice",
+  correct: "B",
   children: [
-    { type: "a", children: [{ type: "b", children: [{ type: "c" }] }] },
+    {
+      type: "mc-question",
+      children: [
+        {
+          type: "text",
+          value: "qqqqq",
+        },
+      ],
+    },
+    {
+      type: "mc-choices",
+      children: [
+        {
+          type: "text",
+          value: "ccccc",
+        },
+      ],
+    },
+    {
+      type: "mc-solution",
+      children: [
+        {
+          type: "text",
+          value: "sssss",
+        },
+      ],
+    },
   ],
 };
 </script>

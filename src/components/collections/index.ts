@@ -1,13 +1,11 @@
-import ComponentA from "./directives/ComponentA.vue";
-import ComponentB from "./directives/ComponentB.vue";
-import ComponentC from "./directives/ComponentC.vue";
 import Root from "./Root.vue";
+import { multipleChoiceMapper } from "./directives/multiple-choice/index.js";
+import { basicMapper } from "./basic/index.js";
 
 export const componentMapper: Record<string, any> = {
   root: Root,
-  a: ComponentA,
-  b: ComponentB,
-  c: ComponentC,
+  ...multipleChoiceMapper,
+  ...basicMapper,
 };
 
-export const truncList = ["a"];
+export const truncList = ["multiple-choice"];

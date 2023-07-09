@@ -1,6 +1,5 @@
 <template>
-  {{ props.node.type }}
-  <slot />
+  {{ props.node.value }}
 </template>
 
 <script setup lang="ts">

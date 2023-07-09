@@ -1,7 +1,17 @@
 <script setup lang="ts">
-import TreeRender from './components/TreeRender.vue'
+import TreeRender from "./components/TreeRender.vue";
 </script>
 
 <template>
-  <TreeRender />
+  <div class="TreeBoard">
+    <TreeRender />
+  </div>
 </template>
+
+<style>
+.TreeBoard {
+  width: 800px;
+  padding: 15px;
+  border: 1px solid black;
+}
+</style>

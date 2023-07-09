@@ -8,8 +8,7 @@ import TreeRecursive from "./TreeRecursive.vue";
 const mdast = {
   type: "root",
   children: [
-    { type: "a", children: [{ type: "b" }], options: { x: true } },
-    { type: "b" },
+    { type: "a", children: [{ type: "b", children: [{ type: "c" }] }] },
   ],
 };
 </script>

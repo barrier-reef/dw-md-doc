@@ -4,6 +4,7 @@
 
 <script setup lang="ts">
 import TreeRecursive from "./TreeRecursive.vue";
+import root from "../assets/mdast.json";
 
-const mdast = { type: "root" };
+const mdast = root;
 </script>

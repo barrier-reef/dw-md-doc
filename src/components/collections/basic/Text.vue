@@ -7,3 +7,6 @@ const props = defineProps<{
   node: any;
 }>();
 </script>
+
+<style scoped>
+</style>

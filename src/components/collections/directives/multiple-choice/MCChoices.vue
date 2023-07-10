@@ -3,10 +3,8 @@
     <div class="header-icon">
       <font-awesome-icon icon="fa-regular fa-circle-question" />
     </div>
-    <div class="header-text">Choices</div>
-    <div class="submit-button">
-      <button @click="chooseAnswer">submit</button>
-    </div>
+    <div class="header-text">选项</div>
+    <button class="submit-button" @click="chooseAnswer">submit</button>
   </div>
   <div class="mc-choice-content"><slot /></div>
 </template>
@@ -49,7 +47,7 @@ button {
   justify-content: space-between;
 }
 .header-icon {
-  padding-right: 10px;
+  padding-right: 8px;
 }
 .submit-button {
   margin-left: auto;
@@ -72,8 +70,8 @@ button {
   transition-property: color, background-color, border-color;
 }
 .submit-button:hover {
-  color: #f0eaea;
-  background-color: #84937d;
+  color: #ffffff;
+  background-color: #69696e;
   border-color: #1b1f2326;
   transition-duration: 0.1s;
 }

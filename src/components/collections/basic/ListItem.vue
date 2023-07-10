@@ -1,5 +1,5 @@
 <template>
-  <li :key="props.node.key">
+  <li :key="props.node.key" class="list-item">
     <slot></slot>
   </li>
 </template>

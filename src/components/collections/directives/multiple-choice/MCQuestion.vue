@@ -3,7 +3,7 @@
     <div class="header-icon">
       <font-awesome-icon icon="fa-regular fa-file-lines" />
     </div>
-    <div class="header-text">Exercise</div>
+    <div class="header-text">问题</div>
   </div>
   <div class="mc-question-content"><slot /></div>
 </template>

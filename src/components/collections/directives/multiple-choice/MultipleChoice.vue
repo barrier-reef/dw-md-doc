@@ -41,7 +41,7 @@ const choices = props.node.children[1];
 const solution = props.node.children[2];
 </script>
 
-<style>
+<style scoped>
 .multiple-choice {
   border: 2px solid rgb(128, 124, 124);
   border-radius: 5px;

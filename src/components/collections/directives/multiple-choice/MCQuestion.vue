@@ -8,7 +8,7 @@
   <div class="mc-question-content"><slot /></div>
 </template>
 
-<style>
+<style scoped>
 .mc-question-header {
   display: flex;
   align-items: center;

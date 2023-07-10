@@ -22,7 +22,7 @@ const props = defineProps<{
 }>();
 </script>
 
-<style>
+<style scoped>
 .container-correct {
   border: 2px solid rgb(154, 206, 130);
   background-color: rgb(231, 243, 225);

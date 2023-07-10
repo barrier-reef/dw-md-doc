@@ -8,7 +8,7 @@ import TreeRender from "./components/TreeRender.vue";
   </div>
 </template>
 
-<style>
+<style scoped>
 .TreeBoard {
   width: 800px;
   padding: 15px;

@@ -28,7 +28,7 @@ function chooseAnswer() {
 }
 </script>
 
-<style>
+<style scoped>
 button {
   padding: 0;
   background-color: transparent;

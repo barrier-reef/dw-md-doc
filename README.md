@@ -37,9 +37,9 @@ documentation for dw-md grammar
       - danger
       - error
   - Multiple Choice
-    - [x] multiple-choice
+    - [ ] multiple-choice
     - [x] mc-question
-    - [x] mc-choices
+    - [ ] mc-choices
     - [x] mc-solution
   - Editable HTML
     - [ ] html-editable-board

@@ -12,7 +12,7 @@ const props = defineProps<{
 
 <style scoped>
 .paragraph {
-  margin: 7.83px 0;
+  margin: 10px 0;
   font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
     "Helvetica Neue", Helvetica, Arial, sans-serif, "Segoe UI";
   line-height: 1.74rem;

@@ -8,7 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import {
   faFileLines,
   faQuestionCircle,
+  faGem
 } from "@fortawesome/free-regular-svg-icons";
-library.add(faFileLines, faQuestionCircle);
+library.add(faFileLines, faQuestionCircle, faGem);
 
 createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");

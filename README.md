@@ -1,3 +1,51 @@
 # dw-md-doc
 
 documentation for dw-md grammar
+
+- Basic
+  - [x] break
+  - [x] delete
+  - [x] emphasis
+  - [ ] heading
+  - [ ] raw-html
+  - [x] link
+  - [x] ordered-list
+  - [x] unordered-list
+  - [x] paragraph
+  - [x] strong
+  - [x] plain-text
+  - [x] underline
+- Figure
+  - [ ] figure
+  - [ ] multi-figure
+- Code
+  - [x] inline-code
+  - [x] code
+  - [x] code-block
+- Directives
+  - Admonition
+    - [ ] dropdown
+    - [ ] other (use heroicons)
+      - note
+      - important
+      - hint
+      - seealse
+      - tip
+      - attention
+      - caution
+      - warning
+      - danger
+      - error
+  - Multiple Choice
+    - [x] multiple-choice
+    - [x] mc-question
+    - [x] mc-choices
+    - [x] mc-solution
+  - Editable HTML
+    - [ ] html-editable-board
+- Math
+  - [x] inline-math
+  - [x] block-math
+- Other
+  - [x] block
+  - [x] root

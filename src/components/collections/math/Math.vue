@@ -20,5 +20,6 @@ const props = defineProps<{
 .math-equation {
   overflow-x: auto;
   overflow-y: hidden;
+  width: 100%;
 }
 </style>

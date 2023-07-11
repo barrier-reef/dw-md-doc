@@ -1,10 +1,23 @@
 <template>
   <div class="admonition-wrapper">
     <div class="admonition-header">
-      <font-awesome-icon icon="fa-regular fa-gem" class="admonition-icon" />
-      {{ title }}
+      <div style="display: flex">
+        <BoltIcon class="admonition-icon" />
+        <div class="admonition-title">
+          {{ title }}
+        </div>
+      </div>
+      <ChevronRightIcon
+        class="dropdown-icon"
+        v-if="isDropdown"
+        :class="{ 'dropdown-toggle': dropdownState.open }"
+        @click="dropdownSwitch"
+      />
     </div>
-    <div class="admonition-body">
+    <div
+      class="admonition-body"
+      :class="{ 'body-toggle': !dropdownState.open && isDropdown }"
+    >
       <TreeRecursive v-for="child in content" :node="child" :key="child.type" />
     </div>
   </div>
@@ -12,13 +25,21 @@
 
 <script setup lang="ts">
 import TreeRecursive from "../../../TreeRecursive.vue";
+import { BoltIcon, ChevronRightIcon } from "@heroicons/vue/24/solid";
+import { reactive } from "vue";
 
 const props = defineProps<{
   node: any;
 }>();
 
+const dropdownState = reactive({ open: false });
 const title = props.node.children[0].children[0].value;
 const content = props.node.children.slice(1);
+const isDropdown = props.node.class === "dropdown";
+
+function dropdownSwitch() {
+  dropdownState.open = !dropdownState.open;
+}
 </script>
 
 <style scoped>
@@ -29,6 +50,8 @@ const content = props.node.children.slice(1);
   border-left: 4px solid rgb(59, 130, 246);
 }
 .admonition-header {
+  display: flex;
+  justify-content: space-between;
   padding: 4px 0;
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -41,11 +64,31 @@ const content = props.node.children.slice(1);
   font-weight: 500;
 }
 .admonition-icon {
-  color: rgb(59, 130, 246);
+  height: 1.6rem;
+  width: 1.6rem;
+  color: rgb(37, 99, 235);
   padding-left: 8px;
   margin-right: 8px;
 }
+.dropdown-icon {
+  height: 1.6rem;
+  width: 1.6rem;
+  color: rgb(37, 99, 235);
+  font-weight: bolder;
+  padding-left: 4px;
+  margin-right: 4px;
+  transition: transform 0.1s ease-out;
+}
+.dropdown-toggle {
+  transform: rotate(90deg);
+}
+.admonition-title {
+  height: 1.8rem;
+}
 .admonition-body {
   padding: 4px 16px;
+}
+.body-toggle {
+  display: none;
 }
 </style>

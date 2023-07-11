@@ -24,7 +24,7 @@ documentation for dw-md grammar
   - [x] code-block
 - Directives
   - Admonition
-    - [ ] dropdown
+    - [x] dropdown
     - [ ] other (use heroicons)
       - note
       - important

@@ -25,7 +25,7 @@ documentation for dw-md grammar
 - Directives
   - Admonition
     - [x] dropdown
-    - [ ] other (use heroicons)
+    - [x] other
       - note
       - important
       - hint

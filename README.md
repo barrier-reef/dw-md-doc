@@ -7,7 +7,7 @@ documentation for dw-md grammar
   - [x] delete
   - [x] emphasis
   - [ ] heading
-  - [ ] raw-html
+  - [ ] ~~raw-html~~
   - [x] link
   - [x] ordered-list
   - [x] unordered-list
@@ -15,8 +15,9 @@ documentation for dw-md grammar
   - [x] strong
   - [x] plain-text
   - [x] underline
-- Figure
-  - [ ] figure
+- Picture
+  - [x] img
+  - [x] markdown-img
   - [ ] multi-figure
 - Code
   - [x] inline-code

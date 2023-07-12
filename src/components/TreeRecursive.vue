@@ -1,13 +1,13 @@
 <template>
-  <component :is="componentType" :node="node" v-if="truncated" />
-  <component :is="componentType" :node="node" v-else-if="node.children">
+  <component :is="componentType" :node="props.node" v-if="truncated" />
+  <component :is="componentType" :node="props.node" v-else-if="node.children">
     <TreeRecursive
       v-for="child in node.children"
       :node="child"
       :key="child.type"
     />
   </component>
-  <component :is="componentType" :node="node" v-else />
+  <component :is="componentType" :node="props.node" v-else />
 </template>
 
 <script setup lang="ts">

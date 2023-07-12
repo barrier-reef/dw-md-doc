@@ -1,13 +1,17 @@
 <template>
   <div :id="node.html_id || node.identifier || node.key" class="math-container">
-    <div v-html="props.node.html" class="math-equation"></div>
+    <div v-html="content" class="math-equation"></div>
   </div>
 </template>
 
 <script setup lang="ts">
+import katex from "katex";
+
 const props = defineProps<{
   node: any;
 }>();
+
+const content = katex.renderToString(props.node.value, { displayMode: true });
 </script>
 
 <style>

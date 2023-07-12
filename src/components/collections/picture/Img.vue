@@ -35,7 +35,6 @@ if (frac && !frac.endsWith("%")) {
     frac = fracDigit * 100 + "%";
   }
 }
-console.log(frac);
 const { width, height } = getSize(props.node.width, props.node.height);
 </script>
 

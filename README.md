@@ -43,7 +43,7 @@ documentation for dw-md grammar
     - [ ] mc-choices
     - [x] mc-solution
   - Editable HTML
-    - [ ] html-editable-board
+    - [x] html-editable-board
 - Math
   - [x] inline-math
   - [x] block-math

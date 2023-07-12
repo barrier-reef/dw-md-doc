@@ -25,14 +25,17 @@ const props = defineProps<{
 const url = props.node.url;
 let caption = props.node.caption;
 let frac: string = props.node.frac;
-if (!frac.endsWith("%")) {
+if (frac && !frac.endsWith("%")) {
   const fracDigit = parseFloat(frac);
   if (fracDigit > 1) {
-    frac = fracDigit * 100 + "%";
+    frac = "100%";
   } else if (fracDigit <= 0) {
     caption = undefined;
+  } else {
+    frac = fracDigit * 100 + "%";
   }
 }
+console.log(frac);
 const { width, height } = getSize(props.node.width, props.node.height);
 </script>
 

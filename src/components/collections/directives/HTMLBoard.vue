@@ -11,7 +11,10 @@
 
 <script setup lang="ts">
 import { VAceEditor } from "vue3-ace-editor";
+import ace from "ace-builds";
 import { reactive } from "vue";
+
+ace.config.set("basePath", "/node_modules/ace-builds/src-min-noconflict");
 
 const props = defineProps<{
   node: any;

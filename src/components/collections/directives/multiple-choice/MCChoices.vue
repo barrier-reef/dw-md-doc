@@ -1,24 +1,31 @@
 <template>
   <div class="mc-choice-header">
-    <div class="header-icon">
-      <font-awesome-icon icon="fa-regular fa-circle-question" />
-    </div>
+    <Squares2X2Icon class="header-icon" />
     <div class="header-text">选项</div>
     <button class="submit-button" @click="chooseAnswer">submit</button>
   </div>
-  <div class="mc-choice-content"><slot /></div>
+  <div class="mc-choice-content">
+    <slot />
+  </div>
 </template>
 
 <script setup lang="ts">
+import { Squares2X2Icon } from "@heroicons/vue/24/outline";
+
 const props = defineProps<{
   choiceVariables: {
     choiceState: string;
     correct: string;
+    choosed: string;
+    key: string;
   };
 }>();
 
 function chooseAnswer() {
-  if (props.choiceVariables.correct === "A") {
+  if (props.choiceVariables.choosed === "") {
+    return;
+  }
+  if (props.choiceVariables.correct === props.choiceVariables.choosed) {
     props.choiceVariables.choiceState = "correct";
   } else {
     props.choiceVariables.choiceState = "wrong";
@@ -47,7 +54,9 @@ button {
   justify-content: space-between;
 }
 .header-icon {
-  padding-right: 8px;
+  height: 1.6rem;
+  width: 1.6rem;
+  margin-right: 8px;
 }
 .submit-button {
   margin-left: auto;

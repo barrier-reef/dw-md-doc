@@ -18,7 +18,7 @@ documentation for dw-md grammar
 - Picture
   - [x] img
   - [x] markdown-img
-  - [ ] multi-figure
+  - [ ] multi-figure (do latter)
 - Code
   - [x] inline-code
   - [x] code
@@ -38,9 +38,9 @@ documentation for dw-md grammar
       - danger
       - error
   - Multiple Choice
-    - [ ] multiple-choice
+    - [x] multiple-choice
     - [x] mc-question
-    - [ ] mc-choices
+    - [x] mc-choices
     - [x] mc-solution
   - Editable HTML
     - [x] html-editable-board

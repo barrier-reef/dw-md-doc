@@ -1,12 +1,14 @@
 <template>
   <div class="mc-question-header">
-    <div class="header-icon">
-      <font-awesome-icon icon="fa-regular fa-file-lines" />
-    </div>
+    <PencilSquareIcon class="header-icon" />
     <div class="header-text">问题</div>
   </div>
   <div class="mc-question-content"><slot /></div>
 </template>
+
+<script setup lang="ts">
+import { PencilSquareIcon } from "@heroicons/vue/24/outline";
+</script>
 
 <style scoped>
 .mc-question-header {
@@ -20,7 +22,9 @@
   background-color: rgb(225, 225, 232);
 }
 .header-icon {
-  padding-right: 10px;
+  height: 1.6rem;
+  width: 1.6rem;
+  margin-right: 8px;
 }
 .mc-question-content {
   padding: 10px 15px;

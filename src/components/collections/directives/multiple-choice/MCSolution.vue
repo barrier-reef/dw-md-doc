@@ -18,6 +18,8 @@ const props = defineProps<{
   choiceVariables: {
     choiceState: string;
     correct: string;
+    choosed: string;
+    key: string;
   };
 }>();
 </script>

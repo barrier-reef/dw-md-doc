@@ -8,10 +8,13 @@
       />
     </MCQuestion>
     <MCChoices :choiceVariables="choiceVariables">
-      <TreeRecursive
-        v-for="child in choices.children"
+      <MCItem
+        v-for="(child, index) in choices.children"
         :node="child"
-        :key="child.type" /><MCSolution :choiceVariables="choiceVariables"
+        :key="child.type"
+        :index="index"
+        :choiceVariables="choiceVariables" /><MCSolution
+        :choiceVariables="choiceVariables"
         ><TreeRecursive
           v-for="child in solution.children"
           :node="child"
@@ -25,6 +28,7 @@ import TreeRecursive from "../../../TreeRecursive.vue";
 import MCQuestion from "./MCQuestion.vue";
 import MCChoices from "./MCChoices.vue";
 import MCSolution from "./MCSolution.vue";
+import MCItem from "./MCItem.vue";
 import { reactive } from "vue";
 
 const props = defineProps<{
@@ -34,10 +38,12 @@ const props = defineProps<{
 const choiceVariables = reactive({
   choiceState: "notSelected",
   correct: props.node.correct,
+  choosed: "",
+  key: props.node.key,
 });
 
 const question = props.node.children[0];
-const choices = props.node.children[1];
+const choices = props.node.children[1].children[0];
 const solution = props.node.children[2];
 </script>
 

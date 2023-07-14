@@ -15,3 +15,14 @@ export function getSize(
   }
   return { width: widthResult, height: heightResult };
 }
+
+export function getImgDomNodeFromHTMLString(
+  htmlString: string
+): HTMLImageElement | undefined {
+  var tempDiv = document.createElement("div");
+  tempDiv.innerHTML = htmlString;
+  var children = tempDiv.children;
+  if (children.length === 1 && children[0].tagName === "IMG") {
+    return children[0] as HTMLImageElement;
+  }
+}

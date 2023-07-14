@@ -43,10 +43,10 @@ function choose() {
 label input[type="radio"] {
   display: none;
 }
-label input[type="radio"] ~ span {
+label input[type="radio"] + span {
   display: inline-block;
 }
-label input[type="radio"] ~ span:before {
+label input[type="radio"] + span:before {
   content: "";
   display: block;
   background: #fff;
@@ -55,7 +55,7 @@ label input[type="radio"] ~ span:before {
   border-radius: 50%;
   transition: all 150ms ease-in-out;
 }
-label input[type="radio"]:checked ~ span:before {
+label input[type="radio"]:checked + span:before {
   border: 5px solid rgb(78, 89, 95);
 }
 </style>

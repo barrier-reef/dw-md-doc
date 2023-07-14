@@ -9,10 +9,11 @@
       :class="{ 'header-toggle': isDropdown }"
       :style="{ backgroundColor: getTypeColor(props.node.kind).shallow }"
     >
-      <div style="display: flex">
-        <BoltIcon
+      <div class="admonition-left">
+        <component
           class="admonition-icon"
           :style="{ color: getTypeColor(props.node.kind).deep }"
+          :is="iconsMap[props.node.kind]"
         />
         <div class="admonition-title">
           {{ title }}
@@ -36,8 +37,8 @@
 
 <script setup lang="ts">
 import TreeRecursive from "../../../TreeRecursive.vue";
-import { colorMap } from "./constants";
-import { BoltIcon, ChevronRightIcon } from "@heroicons/vue/24/solid";
+import { colorMap, iconsMap } from "./constants";
+import { ChevronRightIcon } from "@heroicons/vue/24/solid";
 import { reactive } from "vue";
 
 const props = defineProps<{
@@ -77,6 +78,10 @@ function dropdownSwitch() {
     Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
     Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   font-weight: 500;
+}
+.admonition-left {
+  display: flex;
+  align-items: center;
 }
 .header-toggle {
   cursor: pointer;

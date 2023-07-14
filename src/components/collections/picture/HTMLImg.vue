@@ -4,12 +4,13 @@
 
 <script setup lang="ts">
 import Img from "./Img.vue";
+import { getImgDomNodeFromHTMLString } from "./utils";
 
 const props = defineProps<{
   node: any;
 }>();
 
-const domNode = getImgDomNode(props.node.value);
+const domNode = getImgDomNodeFromHTMLString(props.node.value);
 const imgNode = domNode
   ? {
       url: domNode.src,
@@ -19,13 +20,4 @@ const imgNode = domNode
       height: domNode.height,
     }
   : undefined;
-
-function getImgDomNode(htmlString: string): HTMLImageElement | undefined {
-  var tempDiv = document.createElement("div");
-  tempDiv.innerHTML = htmlString;
-  var children = tempDiv.children;
-  if (children.length === 1 && children[0].tagName === "IMG") {
-    return children[0] as HTMLImageElement;
-  }
-}
 </script>

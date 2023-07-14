@@ -27,3 +27,4 @@ package-lock.json
 
 # assets
 src/assets/mdast.json
+pnpm-lock.yaml

@@ -6,6 +6,8 @@
 </template>
 
 <script setup lang="ts">
+import "./prism.js";
+
 const props = defineProps<{
   node: any;
 }>();

@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
+    "package": "vue-cli-service build --target lib --name ast-to-vue ./src/components/index.ts",
     "preview": "vite preview"
   },
   "dependencies": {

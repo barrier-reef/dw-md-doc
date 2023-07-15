@@ -26,4 +26,7 @@ const content = katex.renderToString(props.node.value, { displayMode: true });
   overflow-y: hidden;
   width: 100%;
 }
+.katex-display {
+  margin: 0;
+}
 </style>

@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import TreeRender from "./components/TreeRender.vue";
+import root from "./assets/dw-mdast.json";
+// import root from "./assets/mdast.json";
 </script>
 
 <template>
   <div class="TreeBoard">
-    <TreeRender />
+    <TreeRender :node="root" />
   </div>
 </template>
 

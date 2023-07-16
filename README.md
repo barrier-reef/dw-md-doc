@@ -6,7 +6,7 @@ documentation for dw-md grammar
   - [x] break
   - [x] delete
   - [x] emphasis
-  - [ ] heading
+  - [x] heading
   - [ ] ~~raw-html~~
   - [x] link
   - [x] ordered-list

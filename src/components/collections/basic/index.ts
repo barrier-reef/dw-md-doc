@@ -9,6 +9,7 @@ import Paragraph from "./Paragraph.vue";
 import Strong from "./Strong.vue";
 import Text from "./Text.vue";
 import Underline from "./Underline.vue";
+import Heading from "./Heading.vue";
 
 export const basicMapper: Record<string, any> = {
   break: Break,
@@ -22,4 +23,5 @@ export const basicMapper: Record<string, any> = {
   strong: Strong,
   text: Text,
   underline: Underline,
+  heading: Heading,
 };

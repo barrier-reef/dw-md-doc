@@ -1,50 +1,42 @@
 <template>
   <div class="multiple-choice">
-    <MCQuestion>
-      <TreeRecursive
-        v-for="child in question.children"
-        :node="child"
-        :key="child.type"
-      />
-    </MCQuestion>
-    <MCChoices :choiceVariables="choiceVariables">
-      <MCItem
-        v-for="(child, index) in choices.children"
-        :node="child"
-        :key="child.type"
-        :index="index"
-        :choiceVariables="choiceVariables" /><MCSolution
-        :choiceVariables="choiceVariables"
-        ><TreeRecursive
-          v-for="child in solution.children"
-          :node="child"
-          :key="child.type" /></MCSolution
-    ></MCChoices>
+    <slot></slot>
   </div>
 </template>
 
 <script setup lang="ts">
-import TreeRecursive from "../../../TreeRecursive.vue";
-import MCQuestion from "./MCQuestion.vue";
-import MCChoices from "./MCChoices.vue";
-import MCSolution from "./MCSolution.vue";
-import MCItem from "./MCItem.vue";
-import { reactive } from "vue";
+import { provide, readonly, ref } from "vue";
 
 const props = defineProps<{
   node: any;
 }>();
 
-const choiceVariables = reactive({
-  choiceState: "notSelected",
-  correct: props.node.correct,
-  choosed: "",
-  key: props.node.key,
+const choiceConstant = readonly({
+  correct: props.node.correct as string,
+  key: props.node.key as string,
 });
 
-const question = props.node.children[0];
-const choices = props.node.children[1].children[0];
-const solution = props.node.children[2];
+provide("choiceConstant", choiceConstant);
+
+const choosed = ref("")
+const choiceState = ref("notSelected")
+
+const updateChoosed = (newChoosed: string) => {
+  console.log("updateChoosed: ", newChoosed)
+  choosed.value = newChoosed
+}
+const updateChoiceState = (newChoiceState: string) => {
+  console.log("updateChoiceState: ", newChoiceState)
+  choiceState.value = newChoiceState
+}
+
+provide("choiceVariable", {
+  choosed,
+  updateChoosed,
+  choiceState, 
+  updateChoiceState
+})
+
 </script>
 
 <style scoped>

@@ -13,5 +13,3 @@ export const componentMapper: Record<string, any> = {
   ...codeMapper,
   ...pictureMapper,
 };
-
-export const truncList = ["multiple-choice", "admonition"];

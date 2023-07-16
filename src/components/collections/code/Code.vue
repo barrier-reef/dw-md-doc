@@ -6,8 +6,6 @@
 </template>
 
 <script setup lang="ts">
-import "./prism.js";
-
 const props = defineProps<{
   node: any;
 }>();
@@ -17,3 +15,4 @@ if (props.node.emphasizeLines) {
   emlines = props.node.emphasizeLines.join(",");
 }
 </script>
+../../../../public/prism.js

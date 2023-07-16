@@ -1,15 +1,15 @@
 <template>
   <div id="tree-render">
-    <TreeRecursive :node="mdast" />
+    <TreeRecursive :node="props.node" />
   </div>
 </template>
 
 <script setup lang="ts">
 import TreeRecursive from "./TreeRecursive.vue";
-import root from "../assets/dw-mdast.json";
-// import root from "../assets/mdast.json";
 
-const mdast = root;
+const props = defineProps<{
+  node: any;
+}>();
 </script>
 
 <style scoped lang="scss">

@@ -1,11 +1,23 @@
 {
-  "name": "dw-md-doc",
-  "version": "0.0.1",
+  "name": "ast-to-vue",
+  "private": false,
+  "version": "0.0.4",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "module": "./dist/ast-to-vue.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/ast-to-vue.es.js"
+    },
+    "./dist/ast-to-vue.css": {
+      "import": "./dist/ast-to-vue.css"
+    }
+  },
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "package": "vue-cli-service build --target lib --name ast-to-vue ./src/components/index.ts",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {

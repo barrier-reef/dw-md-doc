@@ -1,7 +1,28 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
 
-// https://vitejs.dev/config/
+
 export default defineConfig({
   plugins: [vue()],
-})
+  build: {
+    cssCodeSplit: true,
+    lib: {
+      entry: "src/components/index.ts",
+      name: "ast-to-vue",
+      formats: ["es"],
+      fileName: (format) => `ast-to-vue.${format}.js`,
+    },
+    rollupOptions: {
+      input: {
+        index: "src/components/index.ts",
+      },
+      external: ["vue"],
+      output: {
+        exports: "named",
+        globals: {
+          vue: "Vue",
+        },
+      },
+    },
+  },
+});

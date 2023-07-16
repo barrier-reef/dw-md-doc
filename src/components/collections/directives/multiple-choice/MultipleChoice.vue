@@ -22,11 +22,9 @@ const choosed = ref("")
 const choiceState = ref("notSelected")
 
 const updateChoosed = (newChoosed: string) => {
-  console.log("updateChoosed: ", newChoosed)
   choosed.value = newChoosed
 }
 const updateChoiceState = (newChoiceState: string) => {
-  console.log("updateChoiceState: ", newChoiceState)
   choiceState.value = newChoiceState
 }
 

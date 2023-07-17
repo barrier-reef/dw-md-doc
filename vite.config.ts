@@ -1,9 +1,9 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 
-
 export default defineConfig({
   plugins: [vue()],
+  // TODO: vite的build配置研究一下
   build: {
     cssCodeSplit: true,
     lib: {

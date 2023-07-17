@@ -1,11 +1,16 @@
 <template>
-  <textarea
-    v-model="inputCode"
-    class="code-textarea"
-    :class="{ 'is-error': jpError }"
-    id="myTextarea"
-    @input="autoResize"
-  ></textarea>
+  <div class="container">
+    <textarea
+      v-model="inputCode"
+      class="code-textarea"
+      :class="{ 'is-error': jpError }"
+      id="myTextarea"
+      @input="autoResize"
+    ></textarea>
+    <button @click="execCode" class="container-button">
+      <PlayCircleIcon class="run-icon" />运行
+    </button>
+  </div>
   <div v-if="jpError">
     <pre class="error-result"><Ansi>{{ensureString(jpError)}}</Ansi></pre>
   </div>
@@ -17,13 +22,13 @@
   </div>
   <div v-html="jpHtml"></div>
   <img :src="jpImage" v-if="jpImage" />
-  <button @click="execCode">执行</button>
 </template>
 
 <script setup lang="ts">
 import axios from "axios";
 import { ref } from "vue";
 import Ansi from "ansi-to-vue3";
+import { PlayCircleIcon } from "@heroicons/vue/24/solid";
 
 const props = defineProps<{
   node: any;
@@ -104,5 +109,27 @@ async function execCode() {
 .error-result {
   margin: 0;
   padding-left: 10px;
+}
+.container {
+  position: relative;
+}
+.container-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  border: 0px solid;
+  color: #575252;
+  background-color: #f7f7fc;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 2px;
+  font-weight: 600;
+}
+.run-icon {
+  width: 20px;
+  height: 20px;
+  padding-right: 5px;
 }
 </style>

@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@heroicons/vue": "^2.0.18",
+    "axios": "^1.4.0",
     "katex": "^0.16.8",
     "vue": "^3.3.4",
     "vue3-ace-editor": "^2.2.2"

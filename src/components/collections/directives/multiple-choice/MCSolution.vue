@@ -33,12 +33,14 @@ const className = computed(() => {
   border: 2px solid rgb(154, 206, 130);
   background-color: rgb(231, 243, 225);
   border-radius: 3px;
+  margin: 10px;
   padding: 0 15px;
 }
 .container-wrong {
   border: 2px solid rgb(240, 149, 149);
   background-color: rgb(243, 225, 225);
   border-radius: 3px;
+  margin: 10px;
   padding: 0 15px;
 }
 .container-none {

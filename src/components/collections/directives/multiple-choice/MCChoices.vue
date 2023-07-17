@@ -29,6 +29,7 @@ const choiceConstant = inject("choiceConstant") as ChoiceConstant;
 
 const choiceVariable = inject("choiceVariable") as ChoiceVariable;
 
+// TODO: 去掉choiceState，只保留correct和choosed
 function chooseAnswer() {
   if (choiceVariable.choosed.value === "") {
     return;

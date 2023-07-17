@@ -46,7 +46,6 @@ const props = defineProps<{
 
 const dropdownState = reactive({ open: false });
 const title = props.node.children[0].children[0].value;
-const content = props.node.children.slice(1);
 const isDropdown = props.node.class === "dropdown";
 
 function getTypeColor(kind: string): { deep: string; shallow: string } {

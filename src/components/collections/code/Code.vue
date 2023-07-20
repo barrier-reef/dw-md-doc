@@ -15,4 +15,3 @@ if (props.node.emphasizeLines) {
   emlines = props.node.emphasizeLines.join(",");
 }
 </script>
-../../../../public/prism.js

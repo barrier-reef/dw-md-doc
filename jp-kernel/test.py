@@ -10,7 +10,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-kernel_manager = KernelManager(kernel_name="myenv")
+kernel_manager = KernelManager()
 kernel_manager.start_kernel()
 kernel_client = kernel_manager.client()
 kernel_client.start_channels()

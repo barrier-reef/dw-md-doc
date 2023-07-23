@@ -125,6 +125,7 @@ async function execCode() {
     textarea.focus();
     jpText.value = response.data.result.text;
     jpHtml.value = response.data.result.html;
+    console.log(jpHtml.value)
     if (response.data.result.image) {
       jpImage.value = "data:image/png;base64," + response.data.result.image;
     } else {

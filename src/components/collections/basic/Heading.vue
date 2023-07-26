@@ -5,6 +5,7 @@
       :node="child"
       :key="child.type"
     />
+    <span :id="node.key"></span>
   </component>
 </template>
 

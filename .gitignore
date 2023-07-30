@@ -27,6 +27,4 @@ package-lock.json
 
 # assets
 src/assets/mdast.json
-pnpm-lock.yaml
-jp-kernel/.flake8
-jp-kernel/__pycache__/
+jp_kernel/__pycache__

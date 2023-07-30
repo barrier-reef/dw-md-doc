@@ -25,6 +25,7 @@ def run(kernel_client, code, user_info):
         msg = kernel_client.get_iopub_msg()
         msg_type = msg["msg_type"]
         content = msg["content"]
+        print("-------------------")
         print(content)
         if user_info:
             if msg_type == "execute_result":

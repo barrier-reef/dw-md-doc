@@ -1,9 +1,7 @@
 <template>
-  <component :is="`h${depth}`" :key="node.key" :id="id" style="position: relative;">
-    <span>
-      <slot></slot>
-    </span>
-    <a style="width: 0; user-select: none;" @click="onClickLink" :href="href"></a>
+  <component :is="`h${depth}`">
+    <slot></slot>
+    <span :id="node.key"></span>
   </component>
 </template>
 

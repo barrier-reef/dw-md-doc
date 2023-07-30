@@ -3,34 +3,43 @@
     <label className="flex text-center justify-center">
       <input
         type="radio"
-        :name="props.choiceVariables.key"
+        :name="choiceConstant.key"
         :value="'ABCDEF'[props.index]"
         @change="choose"
         v-model="picked"
       /><span> </span>
-      <TreeRecursive v-for="child in props.node.children" :node="child" />
+      <slot></slot>
     </label>
   </div>
 </template>
 
 <script setup lang="ts">
-import TreeRecursive from "../../../TreeRecursive.vue";
-import { ref } from "vue";
+import { Ref, inject, ref } from "vue";
 
 const picked = ref("");
 const props = defineProps<{
   node: any;
-  choiceVariables: {
-    choiceState: string;
-    correct: string;
-    choosed: string;
-    key: string;
-  };
   index: number;
 }>();
 
+interface ChoiceConstant {
+  correct: string;
+  key: string;
+}
+
+interface ChoiceVariable {
+  choosed: Ref;
+  updateChoosed: Function;
+  choiceState: Ref;
+  updateChoiceState: Function;
+}
+
+const choiceConstant = inject("choiceConstant") as ChoiceConstant;
+
+const choiceVariable = inject("choiceVariable") as ChoiceVariable;
+
 function choose() {
-  props.choiceVariables.choosed = picked.value;
+  choiceVariable.updateChoosed(picked.value);
 }
 </script>
 

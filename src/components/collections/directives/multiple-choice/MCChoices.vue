@@ -11,24 +11,33 @@
 
 <script setup lang="ts">
 import { Squares2X2Icon } from "@heroicons/vue/24/outline";
+import { Ref, inject } from "vue";
 
-const props = defineProps<{
-  choiceVariables: {
-    choiceState: string;
-    correct: string;
-    choosed: string;
-    key: string;
-  };
-}>();
+interface ChoiceConstant {
+  correct: string;
+  key: string;
+}
 
+interface ChoiceVariable {
+  choosed: Ref;
+  updateChoosed: Function;
+  choiceState: Ref;
+  updateChoiceState: Function;
+}
+
+const choiceConstant = inject("choiceConstant") as ChoiceConstant;
+
+const choiceVariable = inject("choiceVariable") as ChoiceVariable;
+
+// TODO: 去掉choiceState，只保留correct和choosed
 function chooseAnswer() {
-  if (props.choiceVariables.choosed === "") {
+  if (choiceVariable.choosed.value === "") {
     return;
   }
-  if (props.choiceVariables.correct === props.choiceVariables.choosed) {
-    props.choiceVariables.choiceState = "correct";
+  if (choiceConstant.correct === choiceVariable.choosed.value) {
+    choiceVariable.updateChoiceState("correct");
   } else {
-    props.choiceVariables.choiceState = "wrong";
+    choiceVariable.updateChoiceState("wrong");
   }
 }
 </script>

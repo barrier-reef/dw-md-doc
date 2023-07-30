@@ -30,13 +30,12 @@
       class="admonition-body"
       :class="{ 'body-toggle': !dropdownState.open && isDropdown }"
     >
-      <TreeRecursive v-for="child in content" :node="child" :key="child.type" />
+      <slot></slot>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import TreeRecursive from "../../../TreeRecursive.vue";
 import { colorMap, iconsMap } from "./constants";
 import { ChevronRightIcon } from "@heroicons/vue/24/solid";
 import { reactive } from "vue";
@@ -47,7 +46,6 @@ const props = defineProps<{
 
 const dropdownState = reactive({ open: false });
 const title = props.node.children[0].children[0].value;
-const content = props.node.children.slice(1);
 const isDropdown = props.node.class === "dropdown";
 
 function getTypeColor(kind: string): { deep: string; shallow: string } {

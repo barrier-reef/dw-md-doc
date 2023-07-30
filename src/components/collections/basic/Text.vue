@@ -1,5 +1,7 @@
 <template>
-  {{ props.node.value }}
+  <span>
+    {{ props.node.value }}
+  </span>
 </template>
 
 <script setup lang="ts">

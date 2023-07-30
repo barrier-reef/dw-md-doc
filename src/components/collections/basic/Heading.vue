@@ -1,21 +1,21 @@
 <template>
-  <component :is="hTagType">
-    <TreeRecursive
-      v-for="child in props.node.children"
-      :node="child"
-      :key="child.type"
-    />
+  <component :is="`h${depth}`">
+    <slot></slot>
     <span :id="node.key"></span>
   </component>
 </template>
 
 <script setup lang="ts">
-import TreeRecursive from "../../TreeRecursive.vue";
-
 const props = defineProps<{
-  node: any;
+  node: any
 }>();
-const hTagType = "h" + props.node.depth;
+const { depth, key, identifier, html_id } = props.node;
+const id = html_id || identifier || key;
+const href = `#${id}`
+
+const onClickLink = (event: Event) => {
+  event.preventDefault();
+}
 </script>
 
 <style scoped>

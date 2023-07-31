@@ -1,2 +1,1 @@
-import TreeRender from "./TreeRender.vue";
-export { TreeRender };
+export { default as TreeRender } from "./TreeRender.vue";

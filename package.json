@@ -6,18 +6,20 @@
   "files": [
     "dist"
   ],
-  "module": "./dist/ast-to-vue.es.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/ast-to-vue.es.js"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
     },
-    "./dist/ast-to-vue.css": {
-      "import": "./dist/ast-to-vue.css"
-    }
+    "./index.css": "./dist/index.css",
+    "./dist/index.css": "./dist/index.css"
   },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build-types": "vue-tsc -p tsconfig.build.json && api-extractor run -c api-extractor.json",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -30,6 +32,8 @@
     "vue3-ace-editor": "^2.2.2"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "^7.36.3",
+    "@types/katex": "^0.16.2",
     "@vitejs/plugin-vue": "^4.2.3",
     "sass": "^1.63.6",
     "typescript": "^5.0.2",

@@ -5,12 +5,14 @@ export default defineConfig({
   plugins: [vue()],
   // TODO: vite的build配置研究一下
   build: {
+    target: 'esnext',
     cssCodeSplit: true,
+    minify: false,
     lib: {
       entry: "src/components/index.ts",
       name: "ast-to-vue",
       formats: ["es"],
-      fileName: (format) => `ast-to-vue.${format}.js`,
+      fileName: () => `[name].js`,
     },
     rollupOptions: {
       input: {
@@ -18,7 +20,7 @@ export default defineConfig({
       },
       external: ["vue"],
       output: {
-        exports: "named",
+        chunkFileNames: 'chunks/[name]-[hash].js',
         globals: {
           vue: "Vue",
         },

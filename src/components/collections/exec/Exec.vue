@@ -69,7 +69,7 @@ function fixCode() {
     textarea.classList.add("is-generating");
   }, 500);
 
-  function fillStringList(list) {
+  function fillStringList(list: any) {
     const wholeString = list.join("\n");
     let index = 0;
     const timer = setInterval(() => {

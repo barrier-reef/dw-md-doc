@@ -9,13 +9,7 @@
 const props = defineProps<{
   node: any
 }>();
-const { depth, key, identifier, html_id } = props.node;
-const id = html_id || identifier || key;
-const href = `#${id}`
-
-const onClickLink = (event: Event) => {
-  event.preventDefault();
-}
+const { depth } = props.node;
 </script>
 
 <style scoped>

@@ -18,8 +18,9 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build-types": "vue-tsc -p tsconfig.build.json && api-extractor run -c api-extractor.json",
+    "build": "npm run build:module && npm run build:types",
+    "build:module": "vite build",
+    "build:types": "vue-tsc -p tsconfig.build.json && api-extractor run -c api-extractor.json && node scripts/cleanup.js",
     "preview": "vite preview"
   },
   "dependencies": {

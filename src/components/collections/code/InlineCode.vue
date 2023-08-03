@@ -1,13 +1,25 @@
 <template>
   <span class="inline-code">
-    <code>{{ props.node.value }}</code>
+    <code ref="codeRef" :class="`language-${type}`">{{ props.node.value }}</code>
   </span>
 </template>
 
 <script setup lang="ts">
+import Prism from 'prismjs';
+import { onMounted, ref } from 'vue';
+
 const props = defineProps<{
   node: any;
 }>();
+
+const type = props.node.lang || "test"
+
+const codeRef = ref<Element | null>(null)
+onMounted(() => {
+  if (codeRef.value) {
+    Prism.highlightElement(codeRef.value)
+  }
+})
 </script>
 
 <style scoped>

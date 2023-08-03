@@ -1,5 +1,13 @@
 # dw-md-doc
 
+## TODO
+
+1. generate *.d.ts
+2. prism.css/js manual import
+3. vite.config modification
+
+## toc
+
 documentation for dw-md grammar
 
 - Basic

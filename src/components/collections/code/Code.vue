@@ -1,3 +1,4 @@
+<!-- 这里<pre>和<code>标签不可以换行 -->
 <template>
   <pre
     :class="`${props.node.showLineNumbers ? 'line-numbers' : ''}`"
@@ -6,8 +7,9 @@
 </template>
 
 <script setup lang="ts">
-import Prism from 'prismjs';
 import { onMounted, ref } from 'vue';
+import Prism from 'prismjs';
+import "@/styles/prism.css";
 
 const props = defineProps<{
   node: any;

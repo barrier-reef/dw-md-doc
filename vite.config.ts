@@ -8,19 +8,10 @@ export default defineConfig({
     vue(),
     prismjs({
       languages: [
-        "markup", "css", "clike", "javascript",
-        "bash", "c", "csharp", "cpp", "cmake", "csv",
-        "docker", "fortran", "git", "go", 
-        "gradle", "graphql", "groovy",
-        "http", "java", "json", "julia", "kotlin", 
-        "latex", "less", "lisp", "lua", "markdown", "matlab",
-        "mermaid", "mongodb", "nginx", "nim", "objectivec",
-        "perl", "php", "powershell", "python", "r",
-        "jsx", "tsx", "regex", "rest", "ruby", "rust",
-        "sas", "sass", "scss", "scala", "sql", "swift",
-        "typescript", "tsconfig", "uri", "verilog",
-        "vim", "wasm", "wolfram", "yaml",
-      ], 
+        "markup", "clike", "javascript", "python",
+        "bash", "latex", "sql", "markdown",
+        "json", "c", "cpp"
+      ],
       // languages: "all", // 加载所有语言
       plugins: ["copy-to-clipboard", "line-highlight", "line-numbers", "toolbar"], //配置插件
       theme: "default", //主题名称

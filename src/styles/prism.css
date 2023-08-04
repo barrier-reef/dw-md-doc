@@ -267,5 +267,5 @@ div.code-toolbar > .toolbar > .toolbar-item > span:focus,
 div.code-toolbar > .toolbar > .toolbar-item > span:hover {
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
-/* TODO: copy-to-clipboard-button: cursor-pointer */

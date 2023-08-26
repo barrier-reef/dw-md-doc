@@ -1,5 +1,7 @@
-import Exec from "./Exec.vue";
+// import Exec from "./Exec.vue";
+import Cell from "./Cell.vue";
 
 export const execMapper = {
-  exec: Exec,
+  // exec: Exec,
+  cell: Cell,
 };

@@ -37,7 +37,10 @@ def run(kernel_client, code, user_info):
             if msg_type == "error":
                 user_info["result"]["error"] = content["traceback"]
             if msg_type == "stream":
-                user_info["result"]["stream"] = content["text"]
+                if user_info["result"]["stream"] is None:
+                    user_info["result"]["stream"] = content["text"]
+                else:
+                    user_info["result"]["stream"] += content["text"]
             if msg_type == "display_data":
                 data = content["data"]
                 if "image/png" in data:

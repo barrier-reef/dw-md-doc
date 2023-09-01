@@ -12,6 +12,9 @@
     <div v-if="jpError">
       <pre class="jp-error"><Ansi>{{ensureString(jpError)}}</Ansi></pre>
     </div>
+    <div v-if="isTimeout">
+      <pre>TimeoutError: 代码块执行时间不得超过3秒</pre>
+    </div>
   </div>
 </template>
 
@@ -35,36 +38,65 @@ const jpHtml = ref<any>(null);
 const jpImage = ref<any>(null);
 const jpError = ref<any>(null);
 const jpStream = ref<any>(null);
+const isTimeout = ref<boolean>(false);
 
 const editorView = ref<EditorView | null>(null);
 const editorContainer = ref(null);
-let editableCompartment = new Compartment;
+let editableCompartment = new Compartment();
+
+function findParentByClass(el: HTMLElement, className: string) {
+  if (el.classList.contains(className)) {
+    return el;
+  }
+  if (el.parentElement) {
+    return findParentByClass(el.parentElement, className);
+  }
+  return null;
+}
 
 async function execCode() {
   editorView.value?.contentDOM.blur();
   editorView.value?.contentDOM.classList.add("code-executing");
+  let editorDiv;
+  if (editorView.value?.contentDOM) {
+    editorDiv = findParentByClass(
+      editorView.value?.contentDOM,
+      "cm-editor"
+    );
+    if (editorDiv) {
+      editorDiv.classList.remove("execute-error");
+    }
+  }
   editorView.value?.dispatch({
-    effects: editableCompartment.reconfigure(EditorView.editable.of(false))
+    effects: editableCompartment.reconfigure(EditorView.editable.of(false)),
   });
   try {
     const url = `http://localhost:5000/execute`;
-    const response = await axios.post(url, {
-      code: codeString.value,
+    const response = await axios.get(url, {
+      params: {
+        code: codeString.value,
+      },
     });
-    jpText.value = response.data.result.text;
-    jpHtml.value = response.data.result.html;
-    if (response.data.result.image) {
-      jpImage.value = "data:image/png;base64," + response.data.result.image;
+    jpText.value = response.data.text;
+    jpHtml.value = response.data.html;
+    if (response.data.image) {
+      jpImage.value = "data:image/png;base64," + response.data.image;
     } else {
       jpImage.value = null;
     }
-    jpError.value = response.data.result.error;
-    jpStream.value = response.data.result.stream;
+    jpError.value = response.data.error;
+    jpStream.value = response.data.stream;
+    isTimeout.value = response.data.timeout;
+    if (response.data.timeout || response.data.error) {
+      if (editorDiv) {
+        editorDiv.classList.add("execute-error");
+      }
+    }
   } catch (error) {
     console.error(error);
   }
   editorView.value?.dispatch({
-    effects: editableCompartment.reconfigure(EditorView.editable.of(true))
+    effects: editableCompartment.reconfigure(EditorView.editable.of(true)),
   });
   editorView.value?.contentDOM.classList.remove("code-executing");
 }

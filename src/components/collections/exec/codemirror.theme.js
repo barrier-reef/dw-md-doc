@@ -33,6 +33,7 @@ export const jupyterEditorTheme = EditorView.theme({
   ".cm-content": {
     caretColor: "var(--jp-editor-cursor-color)",
   },
+  "&.execute-error": { border: "1px solid #cd4545 !important" },
   ".cm-content &, .code-executing": {
     animationDuration: "2s",
     animationName: "executing",

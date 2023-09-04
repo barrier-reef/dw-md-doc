@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import TreeRender from "./components/TreeRender.vue";
 // import root from "./assets/dw-mdast.json";
-import root from "./assets/mdast.json";
+// import root from "./assets/mdast.json";
+import root from "./assets/demo.json";
 </script>
 
 <template>

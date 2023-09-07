@@ -23,7 +23,7 @@ import axios from "axios";
 import { onMounted, ref } from "vue";
 import { python } from "@codemirror/lang-python";
 import { EditorState, Compartment } from "@codemirror/state";
-import { lineNumbers, EditorView, keymap } from "@codemirror/view";
+import { lineNumbers, EditorView, keymap, KeyBinding } from "@codemirror/view";
 import { indentWithTab, defaultKeymap } from "@codemirror/commands";
 import { Theme } from "./codemirror.theme.js";
 import Ansi from "ansi-to-vue3";
@@ -44,7 +44,7 @@ const editorView = ref<EditorView | null>(null);
 const editorContainer = ref(null);
 let editableCompartment = new Compartment();
 
-function findParentByClass(el: HTMLElement, className: string) {
+function findParentByClass(el: HTMLElement, className: string) : HTMLElement | null {
   if (el.classList.contains(className)) {
     return el;
   }
@@ -122,7 +122,7 @@ const extensionsConfig = [
   EditorState.readOnly.of(false),
   editableCompartment.of(EditorView.editable.of(true)),
   Theme.getTheme("jupyter"), // 主题引入
-  keymap.of([...whaleKeyMap, indentWithTab]), // 缩进
+  keymap.of([...whaleKeyMap as KeyBinding[], indentWithTab as KeyBinding]), // 缩进
   lineNumbers(),
   python(),
   indentUnit.of("    "),

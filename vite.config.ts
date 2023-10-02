@@ -18,6 +18,10 @@ export default defineConfig({
       css: true,
     }),
   ],
+  
+  optimizeDeps: {
+    include: ["crypto"]
+  },
   build: {
     target: "esnext",
     cssCodeSplit: true,
@@ -32,7 +36,7 @@ export default defineConfig({
       input: {
         index: "src/components/index.ts",
       },
-      external: ["vue"],
+      external: ["vue", "crypto"],
       output: {
         chunkFileNames: "chunks/[name]-[hash].js",
         globals: {
@@ -44,6 +48,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
+      "crypto": "crypto-browserify"
     },
   },
 });

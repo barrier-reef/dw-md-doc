@@ -25,6 +25,7 @@ import { python } from "@codemirror/lang-python";
 import { EditorState, Compartment } from "@codemirror/state";
 import { lineNumbers, EditorView, keymap, KeyBinding } from "@codemirror/view";
 import { indentWithTab, defaultKeymap } from "@codemirror/commands";
+// @ts-ignore
 import { Theme } from "./codemirror.theme.js";
 import Ansi from "ansi-to-vue3";
 import { indentUnit } from "@codemirror/language";

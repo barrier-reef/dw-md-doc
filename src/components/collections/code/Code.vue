@@ -12,7 +12,12 @@ import Prism from 'prismjs';
 import "@/styles/prism.css";
 
 const props = defineProps<{
-  node: any;
+  node: {
+    value: any;
+    lang?: string;
+    showLineNumbers?: boolean;
+    emphasizeLines?: number[];
+  };
 }>();
 
 const type = props.node.lang || "markup"

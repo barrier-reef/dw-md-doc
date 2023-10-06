@@ -1,15 +1,17 @@
 <template>
-  <component :is="`h${depth}`">
+  <component :is="`h${props.node.depth}`">
     <slot></slot>
-    <span :id="node.key"></span>
+    <span :id="props.node.key"></span>
   </component>
 </template>
 
 <script setup lang="ts">
 const props = defineProps<{
-  node: any
+  node: {
+    key: string;
+    depth: number;
+  }
 }>();
-const { depth } = props.node;
 </script>
 
 <style scoped>

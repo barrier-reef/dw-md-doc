@@ -6,6 +6,8 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  node: any;
+  node: {
+    key: string;
+  }
 }>();
 </script>

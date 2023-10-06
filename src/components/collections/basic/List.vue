@@ -1,21 +1,26 @@
 <template>
   <ol
-    v-if="node.ordered"
-    :key="node.key"
-    :start="node.start"
-    :id="node.html_id"
+    v-if="props.node.ordered"
+    :key="props.node.key"
+    :start="props.node.start"
+    :id="props.node.html_id"
     class="list-block"
   >
     <slot></slot>
   </ol>
-  <ul v-else :key="props.node.key" :id="node.html_id" class="list-block">
+  <ul v-else :key="props.node.key" :id="props.node.html_id" class="list-block">
     <slot></slot>
   </ul>
 </template>
 
 <script setup lang="ts">
 const props = defineProps<{
-  node: any;
+  node: {
+    ordered: boolean;
+    key: string;
+    start: number;
+    html_id: string;
+  }
 }>();
 </script>
 

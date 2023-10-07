@@ -32,7 +32,7 @@ export interface LinkNode extends BaseNode {
 
 export interface ListNode extends BaseNode {
   ordered: boolean;
-  start: number;
+  start?: number;
 }
 
 export type ListItemNode = BaseNode

@@ -11,19 +11,12 @@
 
 <script setup lang="ts">
 import { Squares2X2Icon } from "@heroicons/vue/24/outline";
-import { Ref, inject } from "vue";
+import { inject } from "vue";
+import { MCChoicesNode, ChoiceConstant, ChoiceVariable } from "@/types";
 
-interface ChoiceConstant {
-  correct: string;
-  key: string;
-}
-
-interface ChoiceVariable {
-  choosed: Ref;
-  updateChoosed: Function;
-  choiceState: Ref;
-  updateChoiceState: Function;
-}
+defineProps<{
+  node: MCChoicesNode;
+}>();
 
 const choiceConstant = inject("choiceConstant") as ChoiceConstant;
 

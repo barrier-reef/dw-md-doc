@@ -3,7 +3,9 @@
 </template>
 
 <script setup lang="ts">
+import { BlockNode } from "@/types";
+
 defineProps<{
-  node: any;
+  node: BlockNode;
 }>();
 </script>

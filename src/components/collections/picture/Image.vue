@@ -1,16 +1,15 @@
 <template>
   <div class="image-container">
-    <img :src="url" :alt="alt" v-if="url" class="image-style" />
+    <img :src="node.url" :alt="node.alt" v-if="node.url" class="image-style" />
   </div>
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
-  node: any;
-}>();
+import { ImageNode } from "@/types";
 
-const url = props.node.url;
-const alt = props.node.alt;
+const { node } = defineProps<{
+  node: ImageNode
+}>();
 </script>
 
 <style scoped>

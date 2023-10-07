@@ -1,21 +1,21 @@
 <template>
   <ol
     v-if="node.ordered"
-    :key="node.key"
     :start="node.start"
-    :id="node.html_id"
     class="list-block"
   >
     <slot></slot>
   </ol>
-  <ul v-else :key="props.node.key" :id="node.html_id" class="list-block">
+  <ul v-else class="list-block">
     <slot></slot>
   </ul>
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
-  node: any;
+import { ListNode } from '@/types';
+
+const { node } = defineProps<{
+  node: ListNode
 }>();
 </script>
 

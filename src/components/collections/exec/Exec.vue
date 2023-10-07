@@ -35,12 +35,13 @@ import axios from "axios";
 import { ref } from "vue";
 import Ansi from "ansi-to-vue3";
 import { PlayCircleIcon, RocketLaunchIcon } from "@heroicons/vue/24/solid";
+import { ExecNode } from "@/types";
 
-const props = defineProps<{
-  node: any;
+const { node } = defineProps<{
+  node: ExecNode;
 }>();
 
-const inputCode = ref(props.node.value);
+const inputCode = ref(node.value);
 const jpText = ref<any>(null);
 const jpHtml = ref<any>(null);
 const jpImage = ref<any>(null);

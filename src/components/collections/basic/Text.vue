@@ -1,12 +1,14 @@
 <template>
   <span>
-    {{ props.node.value }}
+    {{ node.value }}
   </span>
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
-  node: any;
+import { TextNode } from '@/types';
+
+const { node } = defineProps<{
+  node: TextNode
 }>();
 </script>
 

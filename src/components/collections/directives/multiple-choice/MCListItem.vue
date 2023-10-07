@@ -4,7 +4,7 @@
       <input
         type="radio"
         :name="choiceConstant.key"
-        :value="'ABCDEF'[props.index]"
+        :value="'ABCDEF'[index]"
         @change="choose"
         v-model="picked"
       /><span> </span>
@@ -14,25 +14,14 @@
 </template>
 
 <script setup lang="ts">
-import { Ref, inject, ref } from "vue";
+import { inject, ref } from "vue";
+import { MCListItemNode, ChoiceConstant, ChoiceVariable } from "@/types";
 
 const picked = ref("");
-const props = defineProps<{
-  node: any;
+const { index } = defineProps<{
+  node: MCListItemNode;
   index: number;
 }>();
-
-interface ChoiceConstant {
-  correct: string;
-  key: string;
-}
-
-interface ChoiceVariable {
-  choosed: Ref;
-  updateChoosed: Function;
-  choiceState: Ref;
-  updateChoiceState: Function;
-}
 
 const choiceConstant = inject("choiceConstant") as ChoiceConstant;
 

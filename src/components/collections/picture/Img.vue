@@ -16,26 +16,38 @@
 </template>
 
 <script setup lang="ts">
+import { ref, watchEffect } from "vue";
 import { getSize } from "./utils";
+import { ImgNode } from "@/types";
 
-const props = defineProps<{
-  node: any;
+const { node } = defineProps<{
+  node: ImgNode;
 }>();
 
-const url = props.node.url;
-let caption = props.node.caption;
-let frac: string = props.node.frac;
-if (frac && !frac.endsWith("%")) {
-  const fracDigit = parseFloat(frac);
-  if (fracDigit > 1) {
-    frac = "100%";
-  } else if (fracDigit <= 0) {
-    caption = undefined;
-  } else {
-    frac = fracDigit * 100 + "%";
+const url = ref<string>(node.url)
+
+const frac = ref<string | undefined>()
+const caption = ref<string | undefined>()
+const width = ref<string | undefined>()
+const height = ref<string | undefined>()
+
+watchEffect(() => {
+  if (node.frac && !node.frac.endsWith("%")) {
+    const fracDigit = parseFloat(node.frac);
+    if (fracDigit > 1) {
+      frac.value = "100%";
+    } else if (fracDigit <= 0) {
+      caption.value = undefined;
+    } else {
+      frac.value = (fracDigit * 100) + "%";
+    }
   }
-}
-const { width, height } = getSize(props.node.width, props.node.height);
+  if (node.width && node.height) {
+    const size = getSize(node.width, node.height);
+    width.value = size.width;
+    height.value = size.height;
+  }
+});
 </script>
 
 <style scoped>

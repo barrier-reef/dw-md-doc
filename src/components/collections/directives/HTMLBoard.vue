@@ -13,14 +13,15 @@
 import { VAceEditor } from "vue3-ace-editor";
 import ace from "ace-builds";
 import { reactive } from "vue";
+import { HTMLBoardNode } from "@/types";
 
 ace.config.set("basePath", "/node_modules/ace-builds/src-min-noconflict");
 
-const props = defineProps<{
-  node: any;
+const { node } = defineProps<{
+  node: HTMLBoardNode;
 }>();
 
-const info = reactive({ content: props.node.value });
+const info = reactive({ content: node.value });
 const minLines = 1;
 const maxLines = 1000;
 </script>

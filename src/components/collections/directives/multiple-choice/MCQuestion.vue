@@ -8,6 +8,11 @@
 
 <script setup lang="ts">
 import { PencilSquareIcon } from "@heroicons/vue/24/outline";
+import { MCQuestionNode } from "@/types";
+
+defineProps<{
+  node: MCQuestionNode;
+}>();
 </script>
 
 <style scoped>

@@ -3,21 +3,38 @@
 </template>
 
 <script setup lang="ts">
+import { computed, ComputedRef } from "vue";
 import Img from "./Img.vue";
 import { getImgDomNodeFromHTMLString } from "./utils";
+import { HTMLImgNode, ImgNode } from "@/types";
 
-const props = defineProps<{
-  node: any;
+const { node } = defineProps<{
+  node: HTMLImgNode
 }>();
 
-const domNode = getImgDomNodeFromHTMLString(props.node.value);
-const imgNode = domNode
-  ? {
-      url: domNode.src,
-      caption: domNode.alt,
+const domNode: ComputedRef<HTMLImageElement | undefined> = computed(() => {
+  if (!node.value) 
+    return undefined
+
+  const _domNode = getImgDomNodeFromHTMLString(node.value)
+  return _domNode ? _domNode : undefined
+})
+
+const imgNode: ComputedRef<ImgNode | undefined> = computed(() => {
+  if (domNode.value) {
+    const _imgNode: ImgNode = {
+      url: domNode.value.src,
+      caption: domNode.value.alt,
       frac: undefined,
-      width: domNode.width,
-      height: domNode.height,
+      width: String(domNode.value.width),
+      height: String(domNode.value.height),
+      type: "img",
+      key: node.key + "-img",
+      children: node.children
     }
-  : undefined;
+    return _imgNode;
+  } else {
+    return undefined;
+  }
+})
 </script>

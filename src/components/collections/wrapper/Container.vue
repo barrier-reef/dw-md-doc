@@ -3,7 +3,9 @@
 </template>
 
 <script setup lang="ts">
+import { ContainerNode } from "@/types";
+
 defineProps<{
-  node: any;
+  node: ContainerNode;
 }>();
 </script>

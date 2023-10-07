@@ -1,19 +1,19 @@
 <template>
   <div
     class="admonition-wrapper"
-    :style="{ borderLeftColor: getTypeColor(props.node.kind).deep }"
+    :style="{ borderLeftColor: getTypeColor(node.kind).deep }"
   >
     <div
       class="admonition-header"
       @click="dropdownSwitch"
       :class="{ 'header-toggle': isDropdown }"
-      :style="{ backgroundColor: getTypeColor(props.node.kind).shallow }"
+      :style="{ backgroundColor: getTypeColor(node.kind).shallow }"
     >
       <div class="admonition-left">
         <component
           class="admonition-icon"
-          :style="{ color: getTypeColor(props.node.kind).deep }"
-          :is="iconsMap[props.node.kind]"
+          :style="{ color: getTypeColor(node.kind).deep }"
+          :is="iconsMap[node.kind]"
         />
         <div class="admonition-title">
           {{ title }}
@@ -23,7 +23,7 @@
         class="dropdown-icon"
         v-if="isDropdown"
         :class="{ 'dropdown-toggle': dropdownState.open }"
-        :style="{ color: getTypeColor(props.node.kind).deep }"
+        :style="{ color: getTypeColor(node.kind).deep }"
       />
     </div>
     <div
@@ -39,14 +39,16 @@
 import { colorMap, iconsMap } from "./constants";
 import { ChevronRightIcon } from "@heroicons/vue/24/solid";
 import { reactive } from "vue";
+import { AdmonitionNode } from "@/types";
 
-const props = defineProps<{
-  node: any;
+const { node } = defineProps<{
+  node: AdmonitionNode;
 }>();
 
 const dropdownState = reactive({ open: false });
-const title = props.node.children[0].children[0].value;
-const isDropdown = props.node.class === "dropdown";
+// TODO: refine this
+const title = node.children![0].children![0].value ?? "";
+const isDropdown = node.class === "dropdown";
 
 function getTypeColor(kind: string): { deep: string; shallow: string } {
   return colorMap[kind];

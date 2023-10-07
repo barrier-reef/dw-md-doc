@@ -1,10 +1,9 @@
 <template>
-  <component :is="componentMapper[props.node.type]" :node="props.node">
+  <component :is="componentMapper[node.type]" :node="node" :key="node.key">
     <template v-if="node.children">
       <TreeRecursive
         v-for="child in node.children"
         :node="child"
-        :key="child.key"
       />
     </template>
   </component>
@@ -12,8 +11,9 @@
 
 <script setup lang="ts">
 import { componentMapper } from "./collections/index.js";
+import { BaseNode } from "@/types";
 
-const props = defineProps<{
-  node: any;
+const { node } = defineProps<{
+  node: BaseNode;
 }>();
 </script>

@@ -24,6 +24,7 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/**/.js", "env.d.ts"],
+  "files": ["env.d.ts", "src/components/collections/exec/codemirror.theme.js"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/**/.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

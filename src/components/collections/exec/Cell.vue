@@ -29,11 +29,12 @@ import { indentWithTab, defaultKeymap } from "@codemirror/commands";
 import { Theme } from "./codemirror.theme.js";
 import Ansi from "ansi-to-vue3";
 import { indentUnit } from "@codemirror/language";
+import { CellNode } from "@/types";
 
-const props = defineProps<{
-  node: any;
+const { node } = defineProps<{
+  node: CellNode;
 }>();
-const codeString = ref<string>(props.node.value);
+const codeString = ref<string>(node.value);
 const jpText = ref<any>(null);
 const jpHtml = ref<any>(null);
 const jpImage = ref<any>(null);

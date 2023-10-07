@@ -7,14 +7,12 @@
 </template>
 
 <script setup lang="ts">
-import { Ref, computed, inject } from 'vue';
+import { computed, inject } from 'vue';
+import { MCSolutionNode, ChoiceVariable } from "@/types";
 
-interface ChoiceVariable {
-  choosed: Ref;
-  updateChoosed: Function;
-  choiceState: Ref;
-  updateChoiceState: Function;
-}
+defineProps<{
+  node: MCSolutionNode;
+}>();
 
 const choiceVariable = inject("choiceVariable") as ChoiceVariable;
 

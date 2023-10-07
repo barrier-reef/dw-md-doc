@@ -4,10 +4,11 @@
 
 <script setup lang="ts">
 import katex from "katex";
+import { InlineMathNode } from "@/types";
 
-const props = defineProps<{
-  node: any;
+const { node } = defineProps<{
+  node: InlineMathNode;
 }>();
 
-const content = katex.renderToString(props.node.value, { displayMode: false });
+const content = katex.renderToString(node.value, { displayMode: false });
 </script>

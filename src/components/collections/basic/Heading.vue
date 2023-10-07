@@ -1,15 +1,16 @@
 <template>
-  <component :is="`h${depth}`">
+  <component :is="`h${node.depth}`">
     <slot></slot>
     <span :id="node.key"></span>
   </component>
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
-  node: any
+import { HeadingNode } from "@/types";
+
+const { node } = defineProps<{
+  node: HeadingNode
 }>();
-const { depth } = props.node;
 </script>
 
 <style scoped>

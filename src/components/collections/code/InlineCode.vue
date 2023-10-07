@@ -1,12 +1,13 @@
 <template>
   <span class="inline-code">
-    <code>{{ props.node.value }}</code>
+    <code>{{ node.value }}</code>
   </span>
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
-  node: any;
+import { InlineCodeNode } from "@/types";
+const { node } = defineProps<{
+  node: InlineCodeNode;
 }>();
 </script>
 

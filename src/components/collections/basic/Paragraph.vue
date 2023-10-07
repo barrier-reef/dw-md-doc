@@ -1,12 +1,14 @@
 <template>
-  <p :id="props.node.html_id" class="paragraph">
+  <p class="paragraph">
     <slot />
   </p>
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
-  node: any;
+import { ParagraphNode } from "@/types";
+
+defineProps<{
+  node: ParagraphNode
 }>();
 </script>
 

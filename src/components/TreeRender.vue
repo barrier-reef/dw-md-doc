@@ -6,9 +6,10 @@
 
 <script setup lang="ts">
 import TreeRecursive from "./TreeRecursive.vue";
+import { BaseNode } from "@/types";
 
 const props = defineProps<{
-  node: any;
+  node: BaseNode;
 }>();
 </script>
 

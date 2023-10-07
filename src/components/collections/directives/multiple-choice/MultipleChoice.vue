@@ -6,17 +6,18 @@
 
 <script setup lang="ts">
 import { provide, readonly, ref } from "vue";
+import { MultipleChoiceNode, ChoiceVariable, ChoiceConstant } from "@/types";
 
-const props = defineProps<{
-  node: any;
+const { node } = defineProps<{
+  node: MultipleChoiceNode;
 }>();
 
-const choiceConstant = readonly({
-  correct: props.node.correct as string,
-  key: props.node.key as string,
+const choiceConstant: ChoiceConstant = readonly({
+  correct: node.correct,
+  key: node.key,
 });
 
-provide("choiceConstant", choiceConstant);
+provide<ChoiceConstant>("choiceConstant", choiceConstant);
 
 const choosed = ref("")
 const choiceState = ref("notSelected")
@@ -28,13 +29,14 @@ const updateChoiceState = (newChoiceState: string) => {
   choiceState.value = newChoiceState
 }
 
-provide("choiceVariable", {
+const choiceVariable: ChoiceVariable = {
   choosed,
   updateChoosed,
   choiceState, 
   updateChoiceState
-})
+}
 
+provide<ChoiceVariable>("choiceVariable", choiceVariable)
 </script>
 
 <style scoped>
